@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/boxes/Hurtbox/Hurtbox.gd" type="Script" id=1]
+
+[node name="Hurtbox" type="Area2D" groups=["Type.Hurtbox"]]
+modulate = Color( 0, 1, 0, 1 )
+monitoring = false
+monitorable = false
+script = ExtResource( 1 )

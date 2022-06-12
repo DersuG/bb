@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/props/PunchingBag/PunchingBag.gd" type="Script" id=1]
+[ext_resource path="res://scenes/props/PunchingBag/assets/punching_bag_flying.png" type="Texture" id=2]
+[ext_resource path="res://scenes/components/FlipComponent/FlipComponent.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/props/PunchingBag/assets/punching_bag.png" type="Texture" id=4]
+[ext_resource path="res://scenes/props/PunchingBag/assets/punching_bag_damaged.png" type="Texture" id=5]
+[ext_resource path="res://scenes/props/PunchingBag/assets/punching_bag_ground.png" type="Texture" id=6]
+[ext_resource path="res://scenes/boxes/Hurtbox/Hurtbox.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 45, 165 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 51.5, 167 )
+
+[node name="PunchingBag" type="KinematicBody2D" groups=["Type.Entity"]]
+script = ExtResource( 1 )
+
+[node name="FlipComponent" parent="." instance=ExtResource( 3 )]
+scale = Vector2( -1, 1 )
+
+[node name="IDLE_Sprite" type="Sprite" parent="FlipComponent"]
+position = Vector2( 0, -147 )
+texture = ExtResource( 4 )
+
+[node name="DAMAGED_Sprite" type="Sprite" parent="FlipComponent"]
+visible = false
+position = Vector2( 0, -147 )
+texture = ExtResource( 5 )
+
+[node name="FLYING_Sprite" type="Sprite" parent="FlipComponent"]
+visible = false
+position = Vector2( 0, -147 )
+texture = ExtResource( 2 )
+
+[node name="DEAD_Sprite" type="Sprite" parent="FlipComponent"]
+visible = false
+position = Vector2( 0, -62 )
+texture = ExtResource( 6 )
+
+[node name="IDLE_Hurtbox" parent="FlipComponent" instance=ExtResource( 7 )]
+monitorable = true
+entity_path = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipComponent/IDLE_Hurtbox"]
+position = Vector2( 6, -151 )
+shape = SubResource( 7 )
+
+[node name="DAMAGED_Hurtbox" parent="FlipComponent" instance=ExtResource( 7 )]
+entity_path = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipComponent/DAMAGED_Hurtbox"]
+position = Vector2( -0.5, -153 )
+shape = SubResource( 8 )

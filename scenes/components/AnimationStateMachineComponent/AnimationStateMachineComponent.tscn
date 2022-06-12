@@ -1,0 +1,49 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenes/components/AnimationStateMachineComponent/AnimationStateMachineComponent.gd" type="Script" id=1]
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "DAMAGED"
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "DEAD"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "FLYING"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "IDLE"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=17]
+states/DAMAGED/node = SubResource( 19 )
+states/DAMAGED/position = Vector2( 820, 187 )
+states/DEAD/node = SubResource( 20 )
+states/DEAD/position = Vector2( 1048, 281 )
+states/FLYING/node = SubResource( 21 )
+states/FLYING/position = Vector2( 1048, 187 )
+states/IDLE/node = SubResource( 18 )
+states/IDLE/position = Vector2( 589, 187 )
+transitions = [ "IDLE", "DAMAGED", SubResource( 22 ), "DAMAGED", "FLYING", SubResource( 23 ), "FLYING", "DEAD", SubResource( 24 ) ]
+start_node = "IDLE"
+graph_offset = Vector2( 32, 49 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=3]
+
+[node name="AnimationStateMachineComponent" type="AnimationTree" groups=["Type.Component"]]
+tree_root = SubResource( 17 )
+anim_player = NodePath("Animations")
+process_mode = 0
+parameters/playback = SubResource( 3 )
+script = ExtResource( 1 )
+
+[node name="Animations" type="AnimationPlayer" parent="."]
+root_node = NodePath("")
+playback_process_mode = 0

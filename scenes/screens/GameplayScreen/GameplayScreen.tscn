@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/screens/GameplayScreen/GameplayScreen.gd" type="Script" id=1]
+[ext_resource path="res://scenes/characters/BaseCharacter/BaseCharacter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/props/TrashBag/TrashBag.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/props/PunchingBag/PunchingBag.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/screens/GameplayScreen/assets/dojo_bg.png" type="Texture" id=5]
+
+[node name="GameplayScreen" type="Node" groups=["Type.Screen"]]
+script = ExtResource( 1 )
+
+[node name="Gameplay" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Gameplay"]
+texture = ExtResource( 5 )
+
+[node name="YSort" type="YSort" parent="Gameplay"]
+
+[node name="BaseCharacter" parent="Gameplay/YSort" instance=ExtResource( 2 )]
+position = Vector2( -737, 165 )
+
+[node name="TrashBag" parent="Gameplay/YSort" instance=ExtResource( 3 )]
+position = Vector2( -118, 221 )
+
+[node name="TrashBag3" parent="Gameplay/YSort" instance=ExtResource( 3 )]
+position = Vector2( 87, 325 )
+
+[node name="TrashBag2" parent="Gameplay/YSort" instance=ExtResource( 3 )]
+position = Vector2( 257, 164 )
+
+[node name="PunchingBag" parent="Gameplay/YSort" instance=ExtResource( 4 )]
+position = Vector2( 719, 217 )
