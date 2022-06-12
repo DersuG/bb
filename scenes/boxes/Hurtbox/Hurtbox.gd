@@ -4,6 +4,8 @@ extends Area2D
 export var entity_path := NodePath()
 onready var entity: Node2D = get_node(entity_path)
 
+export var active := false
+
 var frames_visible := 0
 
 func hit(damage: float):
@@ -22,5 +24,5 @@ func _physics_process(delta: float) -> void:
 	if frames_visible <= 0:
 		visible = false
 	
-	if monitorable:
+	if active:
 		show()

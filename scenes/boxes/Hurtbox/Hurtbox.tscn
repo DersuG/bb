@@ -5,5 +5,4 @@
 [node name="Hurtbox" type="Area2D" groups=["Type.Hurtbox"]]
 modulate = Color( 0, 1, 0, 1 )
 monitoring = false
-monitorable = false
 script = ExtResource( 1 )

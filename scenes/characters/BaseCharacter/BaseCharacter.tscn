@@ -203,7 +203,7 @@ tracks/3/keys = {
 } ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("FlipComponent/InputBuffer/IDLE/Hurtbox:monitorable")
+tracks/4/path = NodePath("FlipComponent/InputBuffer/IDLE/Hurtbox:active")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -374,6 +374,18 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("FlipComponent/InputBuffer/IDLE/Hurtbox:active")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=23]
@@ -593,8 +605,8 @@ script = ExtResource( 12 )
 character_path = NodePath("../../..")
 
 [node name="Hurtbox" parent="FlipComponent/InputBuffer/IDLE" instance=ExtResource( 21 )]
-monitorable = true
 entity_path = NodePath("../../../..")
+active = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlipComponent/InputBuffer/IDLE/Hurtbox"]
 position = Vector2( 2.5, -99.5 )

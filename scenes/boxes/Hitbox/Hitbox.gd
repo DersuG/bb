@@ -7,7 +7,9 @@ func get_hit() -> Array:
 	var results := []
 	for area in get_overlapping_areas():
 		if area.is_in_group("Type.Hurtbox"):
-			results.append(area)
+			if area.active:
+				results.append(area)
+	print("Hit %s hurtboxes." % results.size())
 	return results
 
 func show():

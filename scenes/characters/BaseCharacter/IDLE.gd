@@ -14,4 +14,4 @@ func activate(input_buffer: Array, delta: float):
 
 func _physics_process(delta: float) -> void:
 	if get_parent().fsm.get_current_node() != "IDLE":
-		$Hurtbox.monitorable = false
+		$Hurtbox.active = false

@@ -40,7 +40,6 @@ position = Vector2( 0, -62 )
 texture = ExtResource( 6 )
 
 [node name="IDLE_Hurtbox" parent="FlipComponent" instance=ExtResource( 7 )]
-monitorable = true
 entity_path = NodePath("../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlipComponent/IDLE_Hurtbox"]
