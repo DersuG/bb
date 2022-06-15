@@ -5,9 +5,11 @@ onready var character: KinematicBody2D = get_node(character_path)
 
 func validate(input_buffer: Array, delta: float) -> bool:
 	
+	# If input buffer is empty, don't activate.
 	if input_buffer.size() <= 0:
 		return false
 	
+	# If there is a left-pressed input before a left-released input, activate.
 	for input in input_buffer:
 		if input.mode == 0 and input.action == "left":
 			return false

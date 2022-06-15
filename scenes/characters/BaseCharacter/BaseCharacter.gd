@@ -1,3 +1,7 @@
+# BaseCharacter is a generic character scene. Later we can "extend" it to make
+# specific characters with their own sprites/movesets.
+#
+# Most of the logic is actually in the InputBuffer node.
 extends KinematicBody2D
 
 var velocity := Vector2.ZERO
